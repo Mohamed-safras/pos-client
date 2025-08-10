@@ -1,5 +1,4 @@
 // PolarAreaChart.tsx
-import React from "react";
 import { PolarArea } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -44,5 +43,9 @@ const options = {
 };
 
 export default function PolarAreaChart() {
-  return <PolarArea data={data} options={options} />;
+  return (
+    <div className="w-full aspect-video p-4 rounded-lg shadow-md bg-white cursor-cell">
+      <PolarArea data={data} options={options} />
+    </div>
+  );
 }

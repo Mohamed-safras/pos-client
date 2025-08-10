@@ -1,10 +1,12 @@
 export interface Product {
   id: number;
   name: string;
-  price: number;
-  stock: number;
-  category?: string;
-  createdAt: string;
+  image: string;
+  price: string;
+  status: "Available" | "Out of stock" | "Active";
+  sellCount: number;
+  viewCount: number;
+  earning: string;
 }
 
 export interface OrderItem {

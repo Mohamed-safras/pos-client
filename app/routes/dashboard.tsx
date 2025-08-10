@@ -1,11 +1,11 @@
 import type { Route } from "./+types/dashboard";
-import { Dashboard as DashboardPage } from "../dashboard/dashboard";
-import PolarAreaChart from "components/PolarAreaChart";
 
+import { FinancialSummary } from "~/dashboard/financialsummary";
+import { StatsChart } from "~/dashboard/statschart";
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Dashboard" },
+    { name: "description", content: "Welcome to the Dashboard!" },
   ];
 }
 
@@ -16,8 +16,8 @@ export default function Dashboard() {
       <p className="mb-8">
         This is the dashboard page. You can customize it with your widgets.
       </p>
-      <DashboardPage />
-      <PolarAreaChart />
+      <FinancialSummary />
+      <StatsChart />
     </main>
   );
 }

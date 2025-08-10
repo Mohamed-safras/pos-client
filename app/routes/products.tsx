@@ -1,5 +1,9 @@
+import { Header } from "~/products/Header";
 import type { Route } from "./+types/products";
-import { Products as ProductsPage } from "../products/products";
+import BarChart from "components/BarChart";
+
+import type { Product } from "types";
+import { ProductTable } from "~/products/producttable";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +13,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Products() {
-  return <ProductsPage />;
+  return (
+    <main>
+      <h1 className="text-2xl font-bold mb-4">Products</h1>
+      {/* <Header /> */}
+      <ProductTable />
+    </main>
+  );
 }

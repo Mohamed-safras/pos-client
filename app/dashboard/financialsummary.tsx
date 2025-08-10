@@ -5,7 +5,6 @@ import {
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import { SortableWidget } from "components/SortableWidget";
 import useCustomWidget from "hooks/useCustomWidget";
 import { useEffect, useState } from "react";
 
@@ -16,6 +15,8 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import StatsOverview from "components/StatsOverview";
+import { SortableWidget } from "components/SortableWidget";
 
 const widgets = [
   {
@@ -62,7 +63,7 @@ const widgets = [
   },
 ];
 
-export function Dashboard() {
+export function FinancialSummary() {
   const { items, sensors, handleDragEnd } = useCustomWidget(widgets);
 
   const [isClient, setIsClient] = useState(false);
@@ -79,9 +80,16 @@ export function Dashboard() {
         items={items.map((item) => item.id)}
         strategy={horizontalListSortingStrategy}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-8">
           {items.map((widget) => (
-            <SortableWidget key={widget.id} widget={widget} />
+            <SortableWidget key={widget.id} widget={widget}>
+              <StatsOverview
+                name={widget.name}
+                quantity={widget.value}
+                className={widget.className}
+                icon={widget.icon}
+              />
+            </SortableWidget>
           ))}
         </div>
       </SortableContext>

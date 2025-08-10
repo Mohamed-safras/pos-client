@@ -1,9 +1,14 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import StatsOverview from "./StatsOverview";
 import type { Widget } from "hooks/useCustomWidget";
 
-export function SortableWidget({ widget }: { widget: Widget }) {
+export function SortableWidget({
+  widget,
+  children,
+}: {
+  widget: Widget;
+  children: React.ReactNode;
+}) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: widget.id });
 
@@ -14,12 +19,7 @@ export function SortableWidget({ widget }: { widget: Widget }) {
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <StatsOverview
-        name={widget.name}
-        quantity={widget.value}
-        className={widget.className}
-        icon={widget.icon}
-      />
+      {children}
     </div>
   );
 }

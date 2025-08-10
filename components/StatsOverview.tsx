@@ -19,10 +19,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
     >
       <div className="p-6">
         <div className="flex justify-between items-center">
-          <div
-            className="relative flex items-center justify-center"
-            style={{ height: "64px", width: "64px" }}
-          >
+          <div className="relative flex items-center justify-center">
             {/* Enhanced transparent glassmorphism background behind the icon */}
             <div
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-lg shadow-md"
@@ -36,7 +33,9 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({
             <span className="relative z-10 opacity-80">{icon}</span>
           </div>
           <div className="flex flex-col items-end">
-            <h6 className=" text-sm font-medium opacity-90">{name}</h6>
+            <h6 className="text-xs md:text-base lg:text-sm font-medium opacity-90">
+              {name}
+            </h6>
             <div className="stats-number">{quantity}</div>
           </div>
         </div>
