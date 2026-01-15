@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Dashboard() {
   return (
-    <main>
+    <main className="p-6">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
       <p className="mb-8">
         This is the dashboard page. You can customize it with your widgets.

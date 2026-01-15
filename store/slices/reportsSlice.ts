@@ -1,6 +1,10 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { SalesReport } from "../../types";
+import {
+  createSlice,
+  createAsyncThunk,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
 import { orderAPI } from "../../services/api";
+import type { SalesReport } from "types";
 
 interface ReportsState {
   dailyReport: SalesReport | null;

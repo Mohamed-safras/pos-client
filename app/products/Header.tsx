@@ -1,6 +1,10 @@
 import React from "react";
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  onAddProduct: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onAddProduct }) => {
   return (
     <div className="flex justify-between items-center mb-6">
       <h2 className="text-xl font-bold">Products</h2>
@@ -9,7 +13,10 @@ export const Header: React.FC = () => {
           <option value="mostSell">Most Sell</option>
           <option value="mostView">Most Viewed</option>
         </select>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        <button
+          onClick={onAddProduct}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
           + Add Product
         </button>
       </div>

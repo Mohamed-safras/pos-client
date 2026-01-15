@@ -1,6 +1,6 @@
 import DigitalClock from "./DigitalClock";
 
-const Welcome = () => {
+const Greetings = () => {
   return (
     <div className="flex justify-between">
       <div>
@@ -17,4 +17,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Greetings;

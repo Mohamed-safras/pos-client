@@ -7,6 +7,8 @@ export interface Product {
   sellCount: number;
   viewCount: number;
   earning: string;
+  stock: number;
+  category?: string;
 }
 
 export interface OrderItem {
@@ -18,6 +20,7 @@ export interface OrderItem {
 
 export interface Order {
   id: number;
+  customerName: string;
   orderDate: string;
   totalAmount: number;
   paymentType: string;

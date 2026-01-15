@@ -5,6 +5,8 @@ export default [
   route("app/dashboard", "routes/dashboard.tsx"),
   route("app/pos", "routes/pos.tsx"),
   route("app/orders", "routes/orders.tsx"),
-  route("app/reports", "routes/reports.tsx"),
+  route("app/tables", "routes/tables.tsx"),
+  route("app/analytics", "routes/analytics.tsx"),
   route("app/products", "routes/products.tsx"),
+  route("app/settings", "routes/settings.tsx"),
 ] satisfies RouteConfig;

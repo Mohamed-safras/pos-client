@@ -9,7 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import Navigation from "components/Navigation";
+import Header from "components/Header";
+import Sidebar from "components/Sidebar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -34,10 +35,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navigation />
-        <div className="flex">
-          <div className="flex-1">{children}</div>
+        <div className="flex h-screen bg-gray-50 overflow-hidden">
+          {/* Main Sidebar - Hidden on mobile, typically controlled by a drawer for mobile */}
+          <div className="hidden md:block h-full shrink-0">
+            <Sidebar />
+          </div>
+
+          <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden">
+            <Header />
+            <main className="flex-1 overflow-auto relative">{children}</main>
+          </div>
         </div>
+
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -45,8 +54,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { Provider } from "react-redux";
+import { store } from "../store";
+
 export default function App() {
-  return <Outlet />;
+  return (
+    <Provider store={store}>
+      <Outlet />
+    </Provider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
